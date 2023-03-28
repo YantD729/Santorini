@@ -1,7 +1,9 @@
 ## Santorini
 
 A board Game Web App.
+
 backend: mvn exec:exec
+
 frontend: npm install
 
 ## Ruls
