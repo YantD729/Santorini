@@ -1,5 +1,10 @@
 package edu.cmu.cs214.hw3.gameBoard;
 
+import java.util.Arrays;
+
+import edu.cmu.cs214.hw3.component.Tower;
+import edu.cmu.cs214.hw3.component.Worker;
+
 public class Board {
     private Grid[][] gridStatus;
 
@@ -12,6 +17,10 @@ public class Board {
         }
     }
 
+    public Board(Grid[][] newCells) {
+        gridStatus = newCells;
+    }
+
     
     /** 
      * @param x column position
@@ -20,6 +29,13 @@ public class Board {
      */
     public Grid getGrid(int x, int y) {
         return gridStatus[x][y];
+    }
+
+    public Board updateGrid(int x, int y, Worker W, Tower T) {
+        Grid[][] newCells = Arrays.copyOf(this.gridStatus, this.gridStatus.length);
+        gridStatus[x][y].setGridTower(T);
+        gridStatus[x][y].setGridWorker(W);
+        return new Board(newCells);
     }
 
     

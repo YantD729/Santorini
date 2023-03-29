@@ -26,24 +26,21 @@ public class Demeter extends GodCardsGame {
             String msg = this.currentBuild(currPlayer, x, y);
             if (!msg.equals("Succeeded!")) return this;
             roundCount++;
-            this.archiveGame();
-            return this;
+            return this.archiveAndReturnACopy(x, y);
         } else if (currPlayer.hasMoved() && roundCount == 1) {
             roundCount = 0;
             if (x == pCurrW.getXPosition() && y == pCurrW.getYPosition()) {
                 currPlayer.setCurrWorker(null);
                 currPlayer.setUnMoved();
                 setNextCurrPlayer(currPlayer);
-                this.archiveGame();
-                return this;
+                return this.archiveAndReturnACopy(x, y);
             }
             String msg = this.currentBuild(currPlayer, x, y);
             if (!msg.equals("Succeeded!")) return this;
             currPlayer.setCurrWorker(null);
             currPlayer.setUnMoved();
             setNextCurrPlayer(currPlayer);
-            this.archiveGame();
-            return this;
+            return this.archiveAndReturnACopy(x, y);
         }
 
         return baseGame;

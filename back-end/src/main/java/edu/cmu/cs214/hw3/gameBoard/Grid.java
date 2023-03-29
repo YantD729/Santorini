@@ -33,12 +33,19 @@ public class Grid {
         return siteTower;
     }
 
+    public void setGridWorker(Worker w) {
+        siteWorker = w;
+    }
     
     /** 
      * @return Worker
      */
     public Worker getGridWorker() {
         return siteWorker;
+    }
+
+    public void setGridTower(Tower t) {
+        siteTower = t;
     }
 
     /** 

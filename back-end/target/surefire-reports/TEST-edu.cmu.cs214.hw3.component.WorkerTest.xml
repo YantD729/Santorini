@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.cmu.cs214.hw3.component.WorkerTest" time="0" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.cmu.cs214.hw3.component.WorkerTest" time="0.025" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CN"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/19.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/surefire/surefirebooter70731806632314948.jar /Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/surefire 2023-03-28T09-34-36_472-jvmRun1 surefire15791184572079251149tmp surefire_03840988062815000396tmp"/>
+    <property name="sun.java.command" value="/Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/surefire/surefirebooter7399724712355283307.jar /Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/surefire 2023-03-28T11-05-09_003-jvmRun1 surefire12114840783277377731tmp surefire_07009320221266540929tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/test-classes:/Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/classes:/Users/dengyanting/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/dengyanting/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/dengyanting/.m2/repository/org/nanohttpd/nanohttpd/2.3.0/nanohttpd-2.3.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -28,7 +28,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/surefire/surefirebooter70731806632314948.jar"/>
+    <property name="surefire.real.class.path" value="/Users/dengyanting/Documents/GitHub/hw3-santorini-YantD729/back-end/target/surefire/surefirebooter7399724712355283307.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19.0.1"/>
     <property name="user.name" value="dengyanting"/>
@@ -55,5 +55,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="63.0"/>
   </properties>
-  <testcase name="testIsValidMove" classname="edu.cmu.cs214.hw3.component.WorkerTest" time="0"/>
+  <testcase name="testIsValidMove" classname="edu.cmu.cs214.hw3.component.WorkerTest" time="0.003"/>
 </testsuite>

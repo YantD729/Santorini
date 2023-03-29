@@ -47,20 +47,20 @@ public abstract class GodCardsGame implements Game {
         baseGame.gameSetWin(A);
     }
 
-    public void copyStatus(boolean gameStatus, Board pg, Player curr, Player win, List<OriginalGame> hist) {
-        baseGame.copyStatus(gameStatus, pg, curr, win, hist);
-    }
-
-    public void archiveGame() {
-        baseGame.archiveGame();
-    }
-
     public String currentMove(Player A, int x, int y) {
         return baseGame.currentMove(A, x, y);
     }
 
     public String currentBuild(Player A, int x, int y) {
         return baseGame.currentBuild(A, x, y);
+    }
+
+    public void copyGame(Board playGrd, List<OriginalGame> oldHistory, String oldMsg, Player oldPlayer) {
+       baseGame.copyGame(playGrd, oldHistory, oldMsg, oldPlayer);
+    }
+
+    public OriginalGame archiveAndReturnACopy(int x, int y) {
+        return baseGame.archiveAndReturnACopy(x, y);
     }
 
     public boolean playerRound(Player A) {

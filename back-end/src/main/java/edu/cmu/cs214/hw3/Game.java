@@ -24,11 +24,6 @@ public interface Game {
 
     Game play(int x, int y);
 
-    void copyStatus(boolean gameStatus, Board pg,
-                        Player curr, Player win, List<OriginalGame> hist);
-
-    void archiveGame();
-
     String currentMove(Player A, int x, int y);
 
     String currentBuild(Player A, int x, int y);
@@ -36,6 +31,10 @@ public interface Game {
     boolean playerRound(Player A);
 
     boolean checkWin();
+
+    void copyGame(Board playGrd, List<OriginalGame> oldHistory, String oldMsg, Player oldPlayer);
+
+    OriginalGame archiveAndReturnACopy(int x, int y);
 
     Game undo();
 }

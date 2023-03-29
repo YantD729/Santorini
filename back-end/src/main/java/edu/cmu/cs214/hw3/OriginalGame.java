@@ -77,8 +77,7 @@ public class OriginalGame implements Game {
                         msg = i.move(currGrid);
                         currPlayer.setCurrWorker(i);
                         currPlayer.setMoved();
-                        this.archiveGame();
-                        return this;
+                        return this.archiveAndReturnACopy(x, y);
                     } 
                 } 
             } else if (gridW == null && pCurrW != null) {
@@ -89,21 +88,17 @@ public class OriginalGame implements Game {
                             msg = i.move(currGrid);
                             currPlayer.setCurrWorker(i);
                             currPlayer.setMoved();
-                            this.archiveGame();
-                            return this;
+                            return this.archiveAndReturnACopy(x, y);
                         }
                     }
                     return this;
                 }
-                currPlayer.setMoved();
-                this.archiveGame();
-                return this;
+                return this.archiveAndReturnACopy(x, y);
             } else if (gridW != null) {
                 if (pCurrW == null) {
                     if (gridW.getPlayer().equals(currPlayer.getPlayerID())){
                         currPlayer.setCurrWorker(gridW);
-                        this.archiveGame();
-                        return this;
+                        return this.archiveAndReturnACopy(x, y);
                     }
                     return this;
                 }
@@ -114,27 +109,25 @@ public class OriginalGame implements Game {
             currPlayer.setCurrWorker(null);
             currPlayer.setUnMoved();
             currPlayer = currPlayer == playerList[0] ? playerList[1] : playerList[0];
-            this.archiveGame();
-            return this;
+            return this.archiveAndReturnACopy(x, y);
         }
 
         return this;
     }
 
-    public void copyStatus(boolean gameStatus, Board pg,
-                        Player curr, Player win, List<OriginalGame> hist) {
-        gameWin = gameStatus ? true : false;
-        playGround = pg;
-        currPlayer = curr;
-        winner = win;
-        history = hist;
+    public void copyGame(Board playGrd, List<OriginalGame> oldHistory, String oldMsg, Player oldPlayer) {
+        this.playGround = playGrd;
+        this.history = oldHistory;
+        this.msg = oldMsg;
+        this.currPlayer = oldPlayer;
     }
 
-    public void archiveGame() {
-        OriginalGame archive = new OriginalGame(playerList[0], playerList[1]);
-        archive.copyStatus(gameWin, playGround, currPlayer, winner, history);
-        archive.getHistory().add(archive);
-        history.add(archive);
+    public OriginalGame archiveAndReturnACopy(int x, int y) {
+        List<Game> newHistory = new ArrayList<>(this.history);
+        newHistory.add(this);
+        OriginalGame newGame = new OriginalGame(playerList[0], playerList[1]);
+        newGame.copyGame(playGround.updateGrid(x, y, this.getGameGrid(x, y).getGridWorker(), this.getGameGrid(x, y).getGridTower()), history, msg, currPlayer);
+        return newGame;
     }
 
     /** 
@@ -197,14 +190,19 @@ public class OriginalGame implements Game {
         return gameWin;
     }
 
+    public String getMsg() {
+        return msg;
+    }
+
     public OriginalGame undo() {
         int s = this.history.size();
         if (s == 0)
             return this;
         OriginalGame oldGame = this.history.get(s - 1);
         this.history.remove(s - 1);
-        //Will there be a question to do so?
-        return oldGame;
+        OriginalGame newGame = new OriginalGame(playerList[0], playerList[1]);
+        newGame.copyGame(oldGame.getPlayGround(), oldGame.getHistory(), oldGame.getMsg(), oldGame.getCurrPlayer());
+        return newGame;
     }
 
 }
